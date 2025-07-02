@@ -7,7 +7,7 @@ const Orders = () => {
 
   useEffect(() => {
     axios.get("http://localhost:9002/allOrders").then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setAllOrders(res.data);
     });
   }, []);
@@ -29,16 +29,20 @@ const Orders = () => {
             // const profClass = isProfit ? "profit" : "loss";
             // const dayClass = stock.isLoss ? "loss" : "profit";
             return (
-              <tr key={index}>
-                <td>{stock.name}</td>
-                <td>{stock.qty.toFixed(2)}</td>
+              <tbody key={index}>
+                <tr>
+                  <td>{stock.name}</td>
+                  <td>{stock.qty}</td>
+                  {/* <td>{stock.qty.toFixed(2)}</td> */}
 
-                <td>{stock.price.toFixed(2)}</td>
-                {/* <td className={profClass}>
+                  <td>{stock.price}</td>
+                  {/* <td>{stock.price.toFixed(2)}</td> */}
+                  {/* <td className={profClass}>
                   {(curValue - stock.avg * stock.qty).toFixed(2)}
                 </td>
                 <td className={dayClass}>{stock.day}</td> */}
-              </tr>
+                </tr>
+              </tbody>
             );
           })}
         </table>

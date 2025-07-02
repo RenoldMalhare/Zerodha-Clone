@@ -20,7 +20,7 @@ mongoose
 
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["http://localhost:5173", "http://localhost:5174"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -222,7 +222,7 @@ app.post("/newOrder", async (req, res) => {
   res.send("Order saved!");
 });
 
-app.listen(9002, () => {
+app.listen(PORT, () => {
   console.log("App listening.");
   // mongoose.connect(uri);
   // console.log("Db Conneted");
