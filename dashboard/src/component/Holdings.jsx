@@ -5,9 +5,11 @@ import { VerticalGraph } from "./VerticalGraph";
 const Holdings = () => {
   const [allHolding, setAllHolding] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:9002/allHolding").then((res) => {
-      setAllHolding(res.data);
-    });
+    axios
+      .get("https://zerodha-clone-backend-90ba.onrender.com/allHolding")
+      .then((res) => {
+        setAllHolding(res.data);
+      });
   }, []);
 
   const labels = allHolding.map((subArray) => subArray["name"]);
